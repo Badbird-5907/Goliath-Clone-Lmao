@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>OctoControl > Login  </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.min.css" integrity="sha512-b/j0MsmsRINkL4YUIZWvtf9tQr4KYQt2ld3NjEdakM7QRRWLenfe9OmG5K9GjNW56hE0QJCwWMv11fAVFELR2w==" crossorigin="anonymous">
+        -->
+        <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nanobar/0.4.2/nanobar.min.js" integrity="sha512-1Al+dnfE+1gI7IBmpUZ8XnZ3l3Nv6cyA+XgdtlaptVNxJcWWRzHxOPzT+2pbp52qtXa2jkwk0MWYSmxslMsHCQ==" crossorigin="anonymous"></script>
+
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
+    </head>
+<body class="uk-height-1-1">
+<div class="nanobar loading-bar" id="loadingbar" style="position: fixed;">
+    <div class="bar"></div>
+</div>
+<div class="popup">
+    <button class="md-btn md-btn-success" id="openmodal" data-uk-modal="{target:'#message'}" style="visibility: hidden" >Open Dialogue</button>
+
+    <!-- This is the modal -->
+    <div id="message" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title" id="modal-title"></h2>
+            <p id="modal-message"></p>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="" uk-height-viewport>
+    <div class="uk-section uk-flex uk-flex-middle uk-animation-fade uk-width-1-1">
+        <div class="uk-container">
+            <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+                <div class="uk-width-1-1@m">
+                    <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large uk-card-hover center">
+                        <h3 class="uk-card-title uk-text-center">OctoControl > Login</h3>
+                        <div class="uk-alert-danger" id="flash-box" uk-alert>
+                            <a class="uk-alert-close" uk-close></a>
+                            <p id="flash"></p>
+                        </div>
+                        <form action="/login" method="POST" id="login-form">
+                            <div class="uk-margin">
+                                <label for="login-username">Username</label>
+                                <div class="uk-inline uk-width-1-1">
+                                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                    <input class="uk-input uk-form-large" placeholder="Username" id="login-username" name="username" type="text">
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label for="login-password">Password</label>
+                                <div class="uk-inline uk-width-1-1">
+                                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                    <input class="uk-input uk-form-large" name="password" placeholder="A Very STRONK Password" id="login-password" type="password">
+                                </div>
+                            </div>
+                            <div class="uk-margin uk-button-success">
+                                <button class="uk-button-success uk-button-large uk-align-center block-button" type="submit" id="login-button">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large uk-card-hover center">
+                        <h3 class="uk-card-title uk-text-center">Token Login</h3>
+                        <form action="/token" method="POST" id="token-form">
+                            <div class="uk-margin">
+                                <label for="token">One-Time Token</label>
+                                <div class="uk-inline uk-width-1-1">
+                                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                    <input class="uk-input uk-form-large" name="token" id="token" placeholder="A One-Time Token" type="password">
+                                </div>
+                            </div>
+                            <div class="uk-margin uk-button-success">
+                                <button class="uk-button-success uk-button-large uk-align-center block-button" type="submit" id="token-button">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%if(!(alertTitle === '')){%>
+<script>
+    showAlert('<%=alertTitle%>','<%=alertMessage%>');
+</script>
+<%}%>
+<%if(!(flash === undefined)){%>
+    <script>
+        showFlash('<%=flash%>')
+    </script>
+<%}%>
+</body>
+</html>

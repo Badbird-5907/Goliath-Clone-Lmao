@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>OctoControl > Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/css/style.css">
+
+        <script src="/js/script.js"></script>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nanobar/0.4.2/nanobar.min.js" integrity="sha512-1Al+dnfE+1gI7IBmpUZ8XnZ3l3Nv6cyA+XgdtlaptVNxJcWWRzHxOPzT+2pbp52qtXa2jkwk0MWYSmxslMsHCQ==" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    </head>
+    <body>
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    <script>
+        init();
+    </script>
+    <!--end of Navigation bar-->
+    <div class="popup">
+        <button class="md-btn md-btn-success" id="openmodal" data-uk-modal="{target:'#message'}" style="visibility: hidden" >Open Dialogue</button>
+
+        <!-- This is the modal -->
+        <div id="message" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <h2 class="uk-modal-title" id="modal-title"></h2>
+                <p id="modal-message"></p>
+                <p class="uk-text-right">
+                    <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container uk-width-auto flash-box">
+        <div class="uk-alert-danger flash-box" id="flash-box" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p id="flash"></p>
+        </div>
+        <h1 class="h1">Home</h1>
+    </div>
+    <hr>
+    </body>
+    <%if(!(alertTitle === '')){%>
+    <script>
+        showAlert('<%=alertTitle%>','<%=alertMessage%>');
+    </script>
+    <%}%>
+    <script>
+        showFlash('<%=flash%>')
+    </script>
+</html>

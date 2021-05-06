@@ -1,0 +1,22 @@
+html,body {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    font-family: 300;
+    background: #222 !important;
+    overflow: hidden;
+}
+.status-card{
+    background-color: #FFFFFF !important;
+}
+.uk-button-success {
+    background-color: #74bd68;
+    color: #fff;
+    border: 0px;
+    cursor: pointer;
+}
+.uk-button-red {
+    background-color: red;
+    color: #fff;
+    border: 0px;
+    cursor: pointer;
+}

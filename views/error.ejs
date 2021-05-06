@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>OctoControl > Error <%= error.status %> </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.min.css" integrity="sha512-b/j0MsmsRINkL4YUIZWvtf9tQr4KYQt2ld3NjEdakM7QRRWLenfe9OmG5K9GjNW56hE0QJCwWMv11fAVFELR2w==" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <script src="/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nanobar/0.4.2/nanobar.min.js" integrity="sha512-1Al+dnfE+1gI7IBmpUZ8XnZ3l3Nv6cyA+XgdtlaptVNxJcWWRzHxOPzT+2pbp52qtXa2jkwk0MWYSmxslMsHCQ==" crossorigin="anonymous"></script>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
+</head>
+<body class="uk-height-1-1">
+<div class="nanobar loading-bar" id="loadingbar" style="position: fixed;">
+    <div class="bar"></div>
+</div>
+<div class="" uk-height-viewport>
+    <div class="uk-section uk-flex uk-flex-middle uk-animation-fade uk-width-1-1">
+        <div class="uk-container">
+            <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+                <div class="uk-width-1-1@m">
+                    <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large uk-card-hover center">
+                        <h3 class="uk-card-title uk-text-center">OctoControl > Error</h3>
+                        <h4 class="uk-card-title uk-text-center"><%= error.status %></h4>
+                        <p class="uk-text-center"><%= message %></p>
+                        <p class="uk-text-center">Make sure you are logged in!</p>
+                        <hr>
+                        <div class="uk-margin uk-button-success">
+                            <button class="uk-button-success uk-button-large uk-align-center block-button" onclick="goBack()">Back</button>
+                        </div>
+                        <div class="uk-margin uk-button-red">
+                            <!-- TODO: change to domain
+                            -->
+                            <form action="http://localhost/login">
+                                <button class="uk-button-red uk-button-large uk-align-center block-button" type="submit" >Back To Login</button>
+                            </form>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

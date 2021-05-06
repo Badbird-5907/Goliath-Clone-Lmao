@@ -1,0 +1,88 @@
+:root{
+  --gray: #222324;
+  --text-color: #FFFFFF;
+  --aqua: #03fcd3;
+  --green: #4CAF50;
+}
+
+a {
+  color: #00B7FF;
+}
+.center{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.container{
+  margin: auto;
+  width: 100%;
+}
+.loading-bar .bar {
+  background:#f04c78;
+}
+html,body {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-family: 300;
+  overflow: hidden;
+  background-color: var(--gray);
+  //background-color: white;
+}
+.uk-button-success {
+  background-color: #74bd68;
+  color: #fff;
+  border: 0px;
+  cursor: pointer;
+}
+.status-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  background-color: #FFFFFF;
+  width: 30%;
+  text-align: center;
+  padding: 2px 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.card-green .status-card{
+  background-color: #34eb3d;
+}
+.card-red .status-card{
+  background-color: #eb3434;
+}
+
+/* On mouse-over, add a deeper shadow */
+.status-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.block-button {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+.hidden{
+  visibility: hidden;
+}
+.h1{
+  color: #FFFFFF; !important;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.container{
+  align-self: center;
+  text-align: center;
+  overflow: hidden;
+}

@@ -1,0 +1,147 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>OctoControl > Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/status.css">
+
+    <script src="/js/script.js"></script>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nanobar/0.4.2/nanobar.min.js" integrity="sha512-1Al+dnfE+1gI7IBmpUZ8XnZ3l3Nv6cyA+XgdtlaptVNxJcWWRzHxOPzT+2pbp52qtXa2jkwk0MWYSmxslMsHCQ==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+</head>
+<body>
+<!--Navigation bar-->
+<div id="nav-placeholder"></div>
+<script>
+    init();
+</script>
+<!--end of Navigation bar-->
+<div class="popup">
+    <button class="md-btn md-btn-success" id="openmodal" data-uk-modal="{target:'#message'}" style="visibility: hidden" >Open Dialogue</button>
+
+    <!-- This is the modal -->
+    <div id="message" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title" id="modal-title"></h2>
+            <p id="modal-message"></p>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container uk-width-auto flash-box">
+    <div class="uk-alert-danger flash-box" id="flash-box" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p id="flash"></p>
+    </div>
+    <h1 class="h1">Status</h1>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="column">
+            <div class="card " id="auth-status">
+                <h3>Mojang Session Server</h3>
+                <p class="card-desc" id="auth-status-desc">Status - </p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card " id="mojang-api">
+                <h3>Mojang API</h3>
+                <p class="card-desc" id="mojang-api-desc">Status - </p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card " id="textures-status">
+                <h3>Minecraft Textures</h3>
+                <p class="card-desc" id="textures-status-desc">Status - </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if(authServer === 'o'){ %>
+    <script>
+        console.log('Auth Server Status - online')
+        document.getElementById('auth-status').classList.add('card-green')
+        document.getElementById('auth-status-desc').textContent += "Online";
+    </script>
+<%}%>
+<%if(authServer === 'p'){%>
+    <script>
+        console.log('Auth Server Status - problems')
+        document.getElementById('auth-status').classList.add('card-yellow')
+        document.getElementById('auth-status-desc').textContent += "Problems"
+    </script>
+<%}%>
+<%if(authServer === 'd'){%>
+    <script>
+        console.log('Auth Server Status - down')
+        document.getElementById('auth-status').classList.add('card-red')
+        document.getElementById('auth-status-desc').textContent += "Down"
+    </script>
+<%}%>
+<% if(mojangAPI === 'o'){ %>
+    <script>
+        console.log('Mojang Api Status - Online')
+        document.getElementById('mojang-api').classList.add('card-green')
+        document.getElementById('mojang-api-desc').textContent += "Online";
+    </script>
+<%}%>
+<%if(mojangAPI === 'p'){%>
+    <script>
+        console.log('Mojang Api Status - problems')
+        document.getElementById('mojang-api').classList.add('card-yellow')
+        document.getElementById('mojang-api-desc').textContent += "Problems"
+    </script>
+<%}%>
+<%if(mojangAPI === 'd'){%>
+    <script>
+        console.log('Mojang Api Status - down')
+        document.getElementById('mojang-api').classList.add('card-red')
+        document.getElementById('mojang-api-desc').textContent += "Down"
+    </script>
+<%}%>
+<% if(textures === 'o'){ %>
+    <script>
+        console.log('Textures Status - Online')
+        document.getElementById('textures-status').classList.add('card-green')
+        document.getElementById('textures-status-desc').textContent += "Online";
+    </script>
+<%}%>
+<%if(textures === 'p'){%>
+    <script>
+        console.log('Textures - problems')
+        document.getElementById('textures-status').classList.add('card-yellow')
+        document.getElementById('textures-status-desc').textContent += "Problems"
+    </script>
+<%}%>
+<%if(textures === 'd'){%>
+    <script>
+        console.log('Textures - down')
+        document.getElementById('textures-status').classList.add('card-red')
+        document.getElementById('textures-status-desc').textContent += "Down"
+    </script>
+<%}%>
+</body>
+<%if(!(alertTitle === '')){%>
+<script>
+    showAlert('<%=alertTitle%>','<%=alertMessage%>');
+</script>
+<%}%>
+<script>
+    showFlash('<%=flash%>')
+</script>
+</html>
