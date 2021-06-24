@@ -4,8 +4,9 @@ const passport = require('passport');
 const User = require('mongoose').model('User');
 const flash = require('express-flash');
 const path = require('path');
+//UIkit.notification({message: 'Danger message...', status: 'danger', pos: 'top-right'})
 router.get("/",isLoggedIn,function(req,res){
-  res.render('home',{'nav': 'asdf'});
+  res.redirect('/home')
 });
 router.get('/status',isLoggedIn,function (req,res){
   res.render('status',{authServer: sessionServer,mojangAPI: mojangApi,textures: textures,flash: req.flash('flash'),alertMessage: '', alertTitle: '',username: req.user.username});
@@ -79,6 +80,10 @@ router.get('/home',isLoggedIn,function (req,res){
 });
 router.get('/nav',isLoggedIn,function (req,res){
   res.render('nav',{username: req.user.username,onlinePlayers: 100,uniquePlayers:150,proxyStatus: 'Online',mojangStatus: mojangOverall});
+  //res.sendFile('../html/nav.html',{username: req.user.username})
+})
+router.get('/old-nav',isLoggedIn,function (req,res){
+  res.render('old-nav',{username: req.user.username,onlinePlayers: 100,uniquePlayers:150,proxyStatus: 'Online',mojangStatus: mojangOverall});
   //res.sendFile('../html/nav.html',{username: req.user.username})
 })
 router.get('/flash',isLoggedIn,function (req,res){

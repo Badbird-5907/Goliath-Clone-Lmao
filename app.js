@@ -13,6 +13,8 @@ const express                 = require("express"),
 status.init();
 require('dotenv').config();
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 const indexRouter = require('./routes/index');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
@@ -43,6 +45,12 @@ try{
 }catch(e){
   console.log(e)
 }
+// Make io accessible to our router
+app.use(function(req,res,next){
+  req.io = io;
+  next();
+});
+
 app.use('/',indexRouter);
 app.use('/util',indexRouter);
 
@@ -63,7 +71,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const server = app.listen(80, () => {
+server.listen(80, () => {
   console.log(`OctoControl running on http://localhost:${server.address().port}`);
 });
 module.exports = app;

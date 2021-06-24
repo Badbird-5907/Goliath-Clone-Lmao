@@ -1,5 +1,5 @@
 window.onload = function (){
-//    highlight();
+    highlight();
     /*
     var x1 = document.getElementsByClassName("navEntry");
     var yes = false;
@@ -21,7 +21,6 @@ window.onload = function (){
 
 }
 function highlight(){
-    sleep(50);
     const x1 = document.getElementsByClassName('navEntry');
     let yes = false;
     const title = document.title;
@@ -30,7 +29,7 @@ function highlight(){
     var length = p.length - 1;
     const page = p[length].toLowerCase();
     const p1 = page.replaceAll(' ','');
-    console.log("a: " + page  + " | b: " + p1 + " | c: " + x1)
+    console.log("a: " + page  + " | b: " + p1)
     for (let i = 0; i < x1.length; i++) {
         console.log(p1);
         var x = x1.item(i);
@@ -40,10 +39,19 @@ function highlight(){
         console.log('NavEntry: ' + text.replaceAll(' ',''));
         if(text == p1){
             console.log("true")
-            x.className += ' uk-active';
+            x.className += ' active';
             yes = true;
             break;
         }
+    }
+}
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+    var x = document.getElementById("topnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
     }
 }
 

@@ -34,8 +34,10 @@ function showTopNotiflication(message){
 }
 function init(){
     $(function(){
-        $('#nav-placeholder').load('/nav');
+        $('#nav-placeholder').load('/old-nav');
     });
+    sleep(500)
+    highlight()
     /*
     sleep(500);
     const x1 = document.getElementsByClassName('navEntry');

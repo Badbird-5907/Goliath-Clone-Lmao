@@ -1,29 +1,41 @@
 <div>
-    <script src="/js/nav.js"></script>
-    <link rel="stylesheet" href="/css/nav.css">
-    <div class="topnav" id="topnav">
-        <a href="/home" class="navEntry"><i class="fas fa-home"></i> Home</a>
-        <a href="/metrics"class="navEntry"><i class="fas fa-ruler"></i> Metrics</a>
-        <div class="dropdown">
-            <button class="dropbtn"><i class="fas fa-gavel"></i> Moderation
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="/punishments">Punishments</a>
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+        <link rel="stylesheet" href="/css/nav.css">
+        <script src="/js/nav.js"></script>
+        <nav class="uk-background-secondary uk-light" style="height: 2cm" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <li class=""><a href="/home" id="navEntry">Home</a></li>
+                    <li>
+                        <a href="#">Parent</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#">Active</a></li>
+                                <li><a href="#">Item</a></li>
+                                <li><a href="#">Item</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Item</a></li>
+                </ul>
             </div>
-        </div>
-        <a href="/status" class="navEntry"><i class="fas fa-server"></i> Status</a>
-        <a href="/misc" class="navEntry">Misc</a>
-        <a href="/users" class="navEntry"><i class="fas fa-users"></i> Users</a>
-        <div class="topnav-right">
-            <div class="dropdown-right">
-                <button class="dropbtn-right"><i class="fas fa-user"></i> <%=username%> <i class="fa fa-caret-down"> </i></button>
-                <div class="dropdown-content-right">
-                    <a href="/logout">Log Out</a>
-                </div>
+            <div class="uk-navbar-right">
+
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="#" class="uk-active"><%=username%></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#">Active</a></li>
+                                <li><a href="#">Item</a></li>
+                                <li><a href="#">Item</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </nav>
     </div>
     <div class="bar green">
         <div class="bar-item" id="online-players">Online Players - <%=onlinePlayers%></div>
@@ -33,4 +45,7 @@
         <div class="bar-item" id="proxy-status">Proxy <%=proxyStatus%></div>
         <div class="bar-right-item" id="mojang-status">Mojang Status - <%=mojangStatus%></div>
     </div>
+    <script>
+        highlight()
+    </script>
 </div>

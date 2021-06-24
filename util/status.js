@@ -27,9 +27,7 @@ function parseMojangStatus(json){
         sessionServer = 'o';
     }else if(json[1].color === 'yellow'){
         sessionServer = 'p';
-    }else{
-        sessionServer = 'd';
-    }
+    }else{sessionServer = 'd';}
     if(json[5].color === 'green'){
         mojangApi = 'o';
     }else if(json[5].color === 'yellow'){
@@ -45,9 +43,6 @@ function parseMojangStatus(json){
     }else{
         textures = 'd';
     }
-
-
-
     if(mojangApi === 'o' && sessionServer === 'o'){
         mojangOverall = 'Operational';
     }else {

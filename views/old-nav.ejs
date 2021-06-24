@@ -1,0 +1,37 @@
+<div>
+    <script src="/js/old-nav.js"></script>
+    <link rel="stylesheet" href="/css/old-nav.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <div class="topnav" id="topnav">
+        <a href="/home" class="navEntry"><i class="fas fa-home"></i> Home</a>
+        <a href="/metrics"class="navEntry"><i class="fas fa-ruler"></i> Metrics</a>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-gavel"></i> Moderation
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/punishments">Punishments</a>
+            </div>
+        </div>
+        <a href="/status" class="navEntry"><i class="fas fa-server"></i> Status</a>
+        <a href="/misc" class="navEntry">Misc</a>
+        <a href="/users" class="navEntry"><i class="fas fa-users"></i> Users</a>
+        <div class="topnav-right">
+            <div class="dropdown-right">
+                <button class="dropbtn-right"><i class="fas fa-user"></i> <%=username%> <i class="fa fa-caret-down"> </i></button>
+                <div class="dropdown-content-right">
+                    <a href="/logout">Log Out</a>
+                </div>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+    <div class="bar green">
+        <div class="bar-item" id="online-players">Online Players - <%=onlinePlayers%></div>
+        <div class="bar-item">|</div>
+        <div class="bar-item" id="unique-players">Unique Players - <%=uniquePlayers%></div>
+        <div class="bar-item">|</div>
+        <div class="bar-item" id="proxy-status">Proxy <%=proxyStatus%></div>
+        <div class="bar-right-item" id="mojang-status">Mojang Status - <%=mojangStatus%></div>
+    </div>
+</div>
